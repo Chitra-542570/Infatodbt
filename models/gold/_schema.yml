@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: gld_acctbal_zj
+    description: "Gold: Final Account Balance for JDE"
+    columns:
+      - name: ITEM_ID
+        tests:
+          - not_null
+      - name: ENTITY
+        tests:
+          - not_null
+      - name: SOURCE_SYSTEM
+        tests:
+          - accepted_values:
+              values: ['JDE']
+
+  - name: gld_robar_batches
+    description: "Gold: Final Work Order ROBAR Batches"
+    columns:
+      - name: DOCUMENT_NO
+        tests:
+          - not_null
+      - name: ETL_LOAD_DTE
+        tests:
+          - not_null
+
+  - name: gld_bp_rltnshp_master
+    description: "Gold: Final Business Partner Relationship Master"
+    columns:
+      - name: RLTNSHP_NBR
+        tests:
+          - not_null
+      - name: BUS_PTNR_NBR_1
+        tests:
+          - not_null

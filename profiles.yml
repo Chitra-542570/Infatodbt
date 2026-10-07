@@ -1,0 +1,13 @@
+informatica_migration:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: ZXGREHN-AY84226
+      user: "{{ env_var('SNOWFLAKE_USER', 'CHITRAKRISHNAN') }}"
+      authenticator: externalbrowser
+      role: ACCOUNTADMIN
+      warehouse: COMPUTE_WH
+      database: INFORMATICA_MIGRATION_DB
+      schema: PUBLIC
+      threads: 4

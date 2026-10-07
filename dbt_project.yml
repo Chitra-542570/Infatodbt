@@ -1,0 +1,21 @@
+name: 'informatica_migration'
+version: '1.0.0'
+config-version: 2
+
+profile: 'informatica_migration'
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+
+models:
+  informatica_migration:
+    bronze:
+      +schema: BRONZE
+      +materialized: table
+    silver:
+      +schema: SILVER
+      +materialized: table
+    gold:
+      +schema: GOLD
+      +materialized: table

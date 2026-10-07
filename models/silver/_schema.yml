@@ -1,0 +1,60 @@
+version: 2
+
+models:
+  - name: slv_zj_wo_robar_batches
+    description: "Silver: Work Order ROBAR Batches (from Informatica wf_S_ZJ_WO_ROBAR_BATCHES)"
+    columns:
+      - name: DOCUMENT_NO
+        description: "Work order document number"
+        tests:
+          - not_null
+      - name: LOT_NO
+        description: "Lot/batch number"
+      - name: ETL_LOAD_DTE
+        description: "ETL load timestamp"
+        tests:
+          - not_null
+
+  - name: slv_bp_rltnshp_master
+    description: "Silver: Business Partner Relationship Master (from Informatica wf_DI_BP_RLTNSHP_MASTER)"
+    columns:
+      - name: RLTNSHP_NBR
+        description: "Relationship number"
+        tests:
+          - not_null
+      - name: BUS_PTNR_NBR_1
+        description: "Business partner number 1"
+        tests:
+          - not_null
+      - name: MD5_HASH
+        description: "MD5 hash for change detection"
+        tests:
+          - not_null
+
+  - name: slv_stg_bp_rltnshp_master
+    description: "Silver: Staging BP Relationship for hard deletes (from Informatica wf_DI_BP_RLTNSHP_MASTER)"
+    columns:
+      - name: ODQ_CHANGEMODE
+        description: "Change mode flag - should be 'D' for deletes"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['D']
+
+  - name: slv_bl_acctbal_zj
+    description: "Silver: Account Balance for JDE (from Informatica wf_T_BL_ACCTBAL_ZJ)"
+    columns:
+      - name: ITEM_ID
+        description: "Account ID"
+        tests:
+          - not_null
+      - name: ENTITY
+        description: "Company/Entity code"
+        tests:
+          - not_null
+      - name: SOURCE_SYSTEM
+        description: "Source system identifier"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['JDE']

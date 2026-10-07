@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: brz_f0901_wh
+    description: "Bronze: Account Master from JDE F0901_WH"
+    columns:
+      - name: GMAID
+        description: "Account ID"
+        tests:
+          - not_null
+      - name: GMCO
+        description: "Company"
+        tests:
+          - not_null
+
+  - name: brz_f0006_wh
+    description: "Bronze: Business Unit Master from JDE F0006_WH"
+    columns:
+      - name: MCMCU
+        description: "Business Unit code"
+        tests:
+          - not_null
+
+  - name: brz_f0902_wh
+    description: "Bronze: Account Balances from JDE F0902_WH"
+    columns:
+      - name: GLAID
+        description: "GL Account ID"
+      - name: GLCO
+        description: "GL Company"
+
+  - name: brz_f4108_wh
+    description: "Bronze: Lot Master from JDE F4108_WH"
+    columns:
+      - name: IODOCO
+        description: "Document Number"
+        tests:
+          - not_null
+
+  - name: brz_f4801_wh
+    description: "Bronze: Work Order Master from JDE F4801_WH"
+    columns:
+      - name: WADOCO
+        description: "Work Order Number"
+        tests:
+          - not_null

@@ -1,0 +1,12 @@
+-- Bronze: Raw Lot Master (F4108_WH) from JDE
+-- Source workflow: wf_S_ZJ_WO_ROBAR_BATCHES
+SELECT
+    CAST(IOLOTN AS VARCHAR(30))  AS IOLOTN,
+    IODOCO,
+    CAST(IOLITM AS VARCHAR(25))  AS IOLITM,
+    CAST(IOMCU  AS VARCHAR(12))  AS IOMCU,
+    CAST(IOAITM AS VARCHAR(25))  AS IOAITM,
+    IOUB01,
+    CURRENT_TIMESTAMP()          AS ETL_LOAD_DTE,
+    'JDE'                        AS RECORD_SOURCE
+FROM {{ this.database }}.BRONZE.BRZ_F4108_WH_RAW

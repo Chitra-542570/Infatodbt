@@ -1,0 +1,43 @@
+version: 2
+
+sources:
+  - name: jde_stage
+    description: "JD Edwards staging source tables from Oracle (JDESTAGE schema)"
+    schema: BRONZE
+    tables:
+      - name: brz_f0901_wh
+        description: "Account Master - Chart of Accounts"
+      - name: brz_f0006_wh
+        description: "Business Unit Master"
+      - name: brz_f0902_wh
+        description: "Account Balances"
+      - name: brz_f0005_wh
+        description: "User Defined Codes"
+      - name: brz_f0010_wh
+        description: "Company Constants"
+      - name: brz_f0013_wh
+        description: "Currency Code Master"
+      - name: brz_f4108_wh
+        description: "Lot Master"
+      - name: brz_f4801_wh
+        description: "Work Order Master"
+      - name: brz_f590048
+        description: "Warehouse Location Lookup"
+
+  - name: sap_stage
+    description: "SAP Business Partner source data"
+    schema: BRONZE
+    tables:
+      - name: brz_bp_rltnshp_src
+        description: "Business Partner Relationship source from SAP"
+      - name: brz_bus_ptnr_src
+        description: "Business Partner Master source from SAP"
+
+  - name: ref_data
+    description: "Reference/mapping tables for account balance transformation"
+    schema: BRONZE
+    tables:
+      - name: brz_tdatamap_icp_balance_sheet
+        description: "ICP Balance Sheet mapping table"
+      - name: brz_tdatamap_account_reference
+        description: "Account Reference mapping table"
